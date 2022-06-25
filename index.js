@@ -57,8 +57,39 @@ function sendMessage() {
     document.querySelector('.writeMessage').querySelector('textarea').value = ''
 }
 
-function openSideBar() {
+function toggleSideBar() {
     document.querySelector('.sidebar').classList.toggle('hide')
+    document.querySelector('.fakeSidebar').classList.toggle('hide')
+}
+
+function checkUser(user) {
+    if (user.classList.contains('check')) {
+        return
+    }
+    const users = document.querySelectorAll('.sbUser')
+    users.forEach((element) => {
+        if (element.classList.contains('check')) {
+            element.querySelector('.sbUserCheck').classList.add('hide')
+            element.classList.remove('check')
+        }
+    })
+    user.querySelector('.sbUserCheck').classList.remove('hide')
+    user.classList.add('check')
+}
+
+function checkVisibility(visibility) {
+    if (visibility.classList.contains('check')) {
+        return
+    }
+    const visibs = document.querySelectorAll('.sbVisibility')
+    visibs.forEach((element) => {
+        if (element.classList.contains('check')) {
+            element.querySelector('.sbVisibilityCheck').classList.add('hide')
+            element.classList.remove('check')
+        }
+    })
+    visibility.querySelector('.sbVisibilityCheck').classList.remove('hide')
+    visibility.classList.add('check')
 }
 
 // //Register user

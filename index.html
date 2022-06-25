@@ -15,35 +15,17 @@
     <header>
         <div class="header">
             <div class="logoUol"><img src="img/logo-uol.svg" alt=""></div>
-            <div class="logoProfile"><img src="img/profile.svg" onclick="openSideBar()" alt=""></div>
+            <div class="logoProfile"><img src="img/profile.svg" onclick="toggleSideBar()" alt=""></div>
         </div>
 
-        <div class="fakeSidebar"></div>
-        <div class="sidebar">
+        <div class="fakeSidebar hide" onclick="toggleSideBar()"></div>
+        <div class="sidebar hide">
             <div class="sbTitle">Escolha um contato<br>para enviar mensagem:</div>
 
-            <div class="sbUser">
+            <div class="sbUser check" onclick="checkUser(this)">
                 <div class="sbUserData">
                     <img src="img/person.svg" alt="">
-                    <h1>User</h1>
-                </div>
-                <div class="sbUserCheck">
-                    <img src="img/checkmark.svg" alt="">
-                </div>
-            </div>
-            <div class="sbUser">
-                <div class="sbUserData">
-                    <img src="img/person.svg" alt="">
-                    <h1>User</h1>
-                </div>
-                <div class="sbUserCheck">
-                    <img src="img/checkmark.svg" alt="">
-                </div>
-            </div>
-            <div class="sbUser">
-                <div class="sbUserData">
-                    <img src="img/person.svg" alt="">
-                    <h1>User</h1>
+                    <h1>Todos</h1>
                 </div>
                 <div class="sbUserCheck">
                     <img src="img/checkmark.svg" alt="">
@@ -52,24 +34,25 @@
 
             <div class="sbTitle">Escolha a visibilidade:</div>
 
-            <div class="sbVisibility">
+            <div class="sbVisibility check" onclick="checkVisibility(this)">
                 <div class="sbVisibilityData">
                     <img src="img/lock.svg" alt="">
-                    <h1>Visibility</h1>
+                    <h1>Público</h1>
                 </div>
                 <div class="sbVisibilityCheck">
                     <img src="img/checkmark.svg" alt="">
                 </div>
             </div>
-            <div class="sbVisibility">
+            <div class="sbVisibility" onclick="checkVisibility(this)">
                 <div class="sbVisibilityData">
                     <img src="img/lock.svg" alt="">
-                    <h1>Visibility</h1>
+                    <h1>Reservadamente</h1>
                 </div>
-                <div class="sbVisibilityCheck">
+                <div class="sbVisibilityCheck hide">
                     <img src="img/checkmark.svg" alt="">
                 </div>
             </div>
+
     </header>
 
     <main>
