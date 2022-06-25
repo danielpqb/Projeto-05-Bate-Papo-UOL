@@ -1,9 +1,22 @@
-function getMessages(resp) {
+function registerUser() {
+    const register = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', { name: user })
+    register.catch((e) => {
+        if (e.response.status === 400) {
+            user = prompt('Este nome de usuário já está em uso.\nEscolha outro nome.')
+            registerUser()
+        }
+    })
+}
+function getMessages() {
+    const promise = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
+    promise.then(showMessages);
+}
+function showMessages(resp) {
     let ult = ''
     document.querySelector('main').innerHTML = ''
     messages = resp.data
     messages.forEach((element, index) => {
-        if(index === messages.length - 1){
+        if (index === messages.length - 1) {
             ult = 'ult'
         }
         switch (element.type) {
@@ -16,31 +29,48 @@ function getMessages(resp) {
                 break;
 
             case 'private_message':
-                if (element.to === user){
+                if (element.to === user) {
                     document.querySelector('main').innerHTML += `<div class="message messagePrivate ${ult}"><span>(${element.time}) <strong>${element.from}</strong> reservadamente para <strong>${element.to}:</strong> ${element.text}</span></div>`
                 }
                 break;
-        }        
+        }
     })
     document.querySelector('.ult').scrollIntoView();
 }
-function registerUser() {
-    const register = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', { name: user })
-    register.catch((e) => {
-        if (e.response.status === 400) {
-            user = prompt('Este nome de usuário já está em uso.\nEscolha outro nome.')
-            registerUser()
-        }
-    })
+function sendMessage() {
+    let msg = document.querySelector('.writeMessage').querySelector('textarea').value
+    if (msg != '') {
+        const send = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', {
+            from: user,
+            to: "Todos",
+            text: msg,
+            type: "message" // ou "private_message" para o bônus
+        })
+        send.then(() => {
+            getMessages()
+        })
+
+        send.catch((err) => {
+            window.location.reload()
+        })
+    }
+    document.querySelector('.writeMessage').querySelector('textarea').value = ''
 }
 
-let user = prompt('Digite seu nome de usuário.')
-registerUser()
-setInterval(() => { axios.post('https://mock-api.driven.com.br/api/v6/uol/status', { name: user }) }, 5000)
+function openSideBar() {
+    document.querySelector('.sidebar').classList.toggle('hide')
+}
 
-let messages
-setInterval(() => {
-    
-    const promise = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
-    promise.then(getMessages);
-}, 3000);
+// //Register user
+// let user = prompt('Digite seu nome de usuário.')
+// registerUser()
+
+// //Get messages
+// let messages
+// getMessages()
+
+// //Refresh messages every 3 seconds
+// setInterval(getMessages, 3000)
+
+// //Keep user conected every 5 seconds
+// setInterval(() => { axios.post('https://mock-api.driven.com.br/api/v6/uol/status', { name: user }) }, 5000)

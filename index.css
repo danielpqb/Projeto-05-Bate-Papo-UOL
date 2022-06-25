@@ -95,3 +95,60 @@ main {
 .messagePrivate {
     background-color: #FFDEDE;
 }
+
+.hide {
+    display: none;
+}
+
+.semiHideMsgs {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 75vw;
+    background-color: white;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.fakeSidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.sbTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    height: 70px;
+}
+
+.sbUser,
+.sbVisibility {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sbUserData,
+.sbVisibilityData {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
