@@ -16,7 +16,9 @@ function getMessages(resp) {
                 break;
 
             case 'private_message':
-                document.querySelector('main').innerHTML += `<div class="message messagePrivate ${ult}"><span>(${element.time}) <strong>${element.from}</strong> reservadamente para <strong>${element.to}:</strong> ${element.text}</span></div>`
+                if (element.to === user){
+                    document.querySelector('main').innerHTML += `<div class="message messagePrivate ${ult}"><span>(${element.time}) <strong>${element.from}</strong> reservadamente para <strong>${element.to}:</strong> ${element.text}</span></div>`
+                }
                 break;
         }        
     })
