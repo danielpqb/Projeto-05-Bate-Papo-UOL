@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+html {
+    width: 100vw;
+}
+
 body {
     display: flex;
     margin: auto;
@@ -16,11 +20,12 @@ strong {
 }
 
 main {
-    width: 100%;
+    width: 100vw;
 }
 
 .header,
 .footer {
+    width: 100vw;
     height: 80px;
     box-sizing: border-box;
     background-color: #FFFFFF;
@@ -28,7 +33,7 @@ main {
     position: fixed;
     left: 0;
     right: 0;
-    padding: 20px;
+    padding: 5px 15px;
 
     display: flex;
     justify-content: space-between;
@@ -51,13 +56,24 @@ main {
     font-family: 'Roboto';
     font-style: normal;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     width: 100%;
+}
+
+.writeMessage p {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    color: #505050;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 1px;
 }
 
 .writeMessage textarea {
     color: #000000;
+    font-family: 'Roboto';
+    font-style: normal;
     font-weight: 400;
     font-size: 18px;
     border: 0px;
@@ -84,6 +100,8 @@ main {
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
+
+    word-break: break-word;
 }
 
 .message span {
@@ -110,18 +128,19 @@ main {
     width: 75vw;
     background-color: white;
     z-index: 2;
-    
+
     display: flex;
     flex-direction: column;
-    
+
     font-family: 'Roboto';
     font-style: normal;
-    
+
     border: 1px solid rgba(0, 0, 0, 0.6);
 }
 
 .fakeSidebar {
     position: fixed;
+    left: 0;
     right: 0;
     top: 0;
     bottom: 0;
@@ -140,13 +159,21 @@ main {
     height: 70px;
 }
 
+.sbUsers {
+    display: flex;
+    flex-direction: column;
+
+    max-height: 400px;
+    overflow: scroll;
+}
+
 .sbUser,
 .sbVisibility {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    
+
     margin: 8px 20px;
 }
 
@@ -165,6 +192,79 @@ main {
     margin: 0px 5px;
 }
 
+.login {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: auto;
+    z-index: 3;
+}
+
+.lgLogo,
+.lgName,
+.lgBtn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lgLogo {
+    height: 40%;
+}
+
+.lgLogo img {
+    width: 30%;
+    min-width: 130px;
+    max-width: 180px;
+    object-fit: contain;
+}
+
+.lgName input {
+    width: 70%;
+    max-width: 380px;
+    height: 55px;
+    text-align: center;
+    color: #6e6e6e;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+}
+
+.lgName input::placeholder {
+    text-align: center;
+    color: #AEAEAE;
+}
+
+.lgBtn {
+    width: 25%;
+    max-width: 130px;
+    height: 45px;
+    margin: 15px 0px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    
+    color: #696969;
+    background-color: #E7E7E7;
+    border-radius: 9px;
+}
+
 .hide {
     display: none;
+    width: 0px;
 }

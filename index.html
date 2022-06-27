@@ -8,64 +8,76 @@
     <title>Projeto 05 - Bate-Papo UOL</title>
 
     <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="spinner.css">
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <header>
+        <div class="login">
+            <div class="lgLogo"><img src="img/logo-uol.svg"></div>
+            <div class="lgName"><input placeholder="Digite seu nome"></input></div>
+            <div class="lgBtn" onclick="registerUser()">Entrar</div>
+            <div class="lds-spinner hide"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+
         <div class="header">
-            <div class="logoUol"><img src="img/logo-uol.svg" alt=""></div>
-            <div class="logoProfile"><img src="img/profile.svg" onclick="toggleSideBar()" alt=""></div>
+            <div class="logoUol"><img src="img/logo-uol.svg"></div>
+            <div class="logoProfile"><img src="img/profile.svg" onclick="toggleSideBar()"></div>
         </div>
 
         <div class="fakeSidebar hide" onclick="toggleSideBar()"></div>
         <div class="sidebar hide">
             <div class="sbTitle">Escolha um contato<br>para enviar mensagem:</div>
 
-            <div class="sbUser check" onclick="checkUser(this)">
-                <div class="sbUserData">
-                    <img src="img/person.svg" alt="">
-                    <h1>Todos</h1>
-                </div>
-                <div class="sbUserCheck">
-                    <img src="img/checkmark.svg" alt="">
+            <div class="sbUsers">
+                <div class="sbUser check" data-identifier="participant" onclick="checkUser(this)">
+                    <div class="sbUserData">
+                        <img src="img/person.svg">
+                        <h1>Todos</h1>
+                    </div>
+                    <div class="sbUserCheck">
+                        <img src="img/checkmark.svg">
+                    </div>
                 </div>
             </div>
 
             <div class="sbTitle">Escolha a visibilidade:</div>
 
-            <div class="sbVisibility check" onclick="checkVisibility(this)">
+            <div class="sbVisibility check" data-identifier="visibility" onclick="checkVisibility(this)">
                 <div class="sbVisibilityData">
-                    <img src="img/lock.svg" alt="">
+                    <img src="img/lock.svg">
                     <h1>Público</h1>
                 </div>
                 <div class="sbVisibilityCheck">
-                    <img src="img/checkmark.svg" alt="">
+                    <img src="img/checkmark.svg">
                 </div>
             </div>
-            <div class="sbVisibility" onclick="checkVisibility(this)">
+            <div class="sbVisibility" data-identifier="visibility" onclick="checkVisibility(this)">
                 <div class="sbVisibilityData">
-                    <img src="img/lock.svg" alt="">
+                    <img src="img/lock.svg">
                     <h1>Reservadamente</h1>
                 </div>
                 <div class="sbVisibilityCheck hide">
-                    <img src="img/checkmark.svg" alt="">
+                    <img src="img/checkmark.svg">
                 </div>
             </div>
-
     </header>
 
     <main>
+        <!--
         <div class="message messagePrivate ${ult}"><span>(${element.time}) <strong>${element.from}</strong>
                 reservadamente para <strong>${element.to}:</strong> ${element.text}</span></div>
+                -->
     </main>
 
     <footer>
         <div class="footer">
             <div class="writeMessage">
                 <textarea type="text" rows="1" placeholder="Escreva aqui..."></textarea>
+                <p>Enviando para Todos (Público)</p>
             </div>
-            <div class="logoSend" onclick="sendMessage()"><img src="img/send.svg" alt=""></div>
+            <div class="logoSend" onclick="sendMessage()"><img src="img/send.svg"></div>
         </div>
     </footer>
 
